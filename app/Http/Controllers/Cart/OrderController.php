@@ -28,15 +28,8 @@ class OrderController extends Controller {
         }
 
         if(env('PAYMENT_METHOD') == 'whatsapp') {
-
-            if(Auth::user()->customer) {
-                $customer = Auth::user()->customer;
-            } else {
-                $customer = Auth::user()->id.rand(0, 999) . strtoupper(str_shuffle('ABCDEFGHIJKLMNOPQRSTUVWXYZ'))[0] . rand(0, 99) . strtoupper(str_shuffle('ABCDEFGHIJKLMNOPQRSTUVWXYZ'))[0] . rand(999, 999999999999);;
-            }
-
             $token = rand(0, 999) . strtoupper(str_shuffle('ABCDEFGHIJKLMNOPQRSTUVWXYZ'))[0] . rand(0, 99) . strtoupper(str_shuffle('ABCDEFGHIJKLMNOPQRSTUVWXYZ'))[0] . rand(999, 999999999999);
-            return redirect($this->whatsapp($customer, $request->name, $request->value, $token, $request->method, $request->installments));
+            return redirect($this->whatsapp($request->name, $request->value, $token, $request->method, $request->installments));
         }
 
         if(Auth::user()->customer) {
@@ -55,7 +48,7 @@ class OrderController extends Controller {
         }
         
         $order                  = new Order();
-        $order->customer_id     = $customer;
+        $order->customer_id     = Auth::user()->id;
         $order->name            = $request->name;
         $order->value           = $request->value;
         $order->payment_token   = $invoice['id'];
@@ -76,10 +69,10 @@ class OrderController extends Controller {
         return redirect()->back()->with('error', 'Não foi possível finalizar o carrinho!');
     }
 
-    private function whatsapp($customer, $name, $value, $token, $method, $installments) {
+    private function whatsapp($name, $value, $token, $method, $installments) {
 
         $order                          = new Order();
-        $order->customer_id             = $customer;
+        $order->customer_id             = Auth::user()->id;
         $order->name                    = $name;
         $order->value                   = $value;
         $order->payment_token           = $token;
