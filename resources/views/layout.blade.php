@@ -11,6 +11,7 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css"/>
     <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;500;700;900&display=swap"/>
     <link rel="stylesheet" href="{{ asset('assets/css/mdb.min.css') }}"/>
+    <link rel="stylesheet" href="{{ asset('assets/css/style.css') }}"/>
 
     <script src="{{ asset('assets/js/sweetalert.js')}}"></script>
     <script src="{{ asset('assets/js/jquery.js') }}"></script>
@@ -83,20 +84,9 @@
     </header>
 
     @yield('content')
-      
-    <div class="fixed-action-btn" id="fixed1" data-mdb-button-init="" data-mdb-ripple-init="" data-mdb-button-initialized="true" style="height: 80px;">
-        <a class="btn btn-floating btn-dark btn-lg text-white" data-mdb-button-init="" data-mdb-ripple-init="" data-mdb-button-initialized="true" aria-pressed="false"> <i class="fas fa-filter"></i> </a>
-        <ul class="list-unstyled" style="margin-bottom: 80px; transform: translateY(368px);">
-            <li>
-                <a href="{{ $link->url_whatsapp ?: '' }}" class="btn btn-success btn-floating btn-lg text-white" data-mdb-button-init="" data-mdb-ripple-init="" data-mdb-button-initialized="true"><i class="fab fa-whatsapp"></i></a>
-            </li>
-            <li>
-                <a href="{{ $link->url_instagram ?: '' }}" class="btn btn-danger btn-floating btn-lg text-white" data-mdb-button-init="" data-mdb-ripple-init="" data-mdb-button-initialized="true"><i class="fab fa-instagram"></i></a>
-            </li>
-            <li>
-                <a href="{{ $link->url_maps ?: '' }}" class="btn btn-primary btn-floating btn-lg" data-mdb-button-init="" data-mdb-ripple-init="" data-mdb-button-initialized="true"><i class="fas fa-map-location-dot"></i></a>
-            </li>
-        </ul>
+
+    <div class="whatsapp-btn" id="whatsappBtn">
+      <a href="{{ $link->url_whatsapp ?: '' }}" target="_blank"><i class="fab fa-whatsapp text-white"></i></a>
     </div>
 
     <footer class="text-center text-lg-start bg-body-tertiary text-muted border-top border-3 mt-5">
@@ -155,6 +145,7 @@
               timer: 5000
           })
       @endif
+
     </script>
   </body>
 </html>
