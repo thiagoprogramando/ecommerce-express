@@ -37,6 +37,16 @@ class Order extends Model {
         return $status[$this->status] ?? 'Pendente';
     }
 
+    public function labelMethod(): string {
+        $status = [
+            'CREDIT_CARD'   => 'Cartão de Crédito',
+            'PIX'           => 'Pix',
+            'BOLETO'        => 'Boleto',
+        ];
+
+        return $status[$this->status] ?? 'Outros';
+    }
+
     public function discounts() {
         return $this->hasMany(Discount::class, 'payment_token', 'payment_token');
     }

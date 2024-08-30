@@ -16,6 +16,7 @@
                                 <th scope="col">#</th>
                                 <th scope="col">Produtos</th>
                                 <th scope="col" class="text-center">Status</th>
+                                <th scope="col" class="text-center">Detalhes de Pagamento</th>
                                 <th scope="col">Preço</th>
                             </tr>
                         </thead>
@@ -34,6 +35,7 @@
                                         </small>
                                     </td>
                                     <td class="text-center">{{$order->labelStatus() }}</td>
+                                    <td class="text-center">{{$order->labelMethod() }} {{ $order->payment_installments }}x</td>
                                     <td><b>R$ {{ number_format($order->value, 2, ',', '.') }}</b><br>
                                         <a href="{{ $order->payment_url }}" target="_blank" class="text-danger">Link de Pagamento</a>
                                     </td>
