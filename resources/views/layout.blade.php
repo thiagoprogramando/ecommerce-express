@@ -85,9 +85,11 @@
 
     @yield('content')
 
-    <div class="whatsapp-btn" id="whatsappBtn">
-      <a href="{{ $link->url_whatsapp ?: '' }}" target="_blank"><i class="fab fa-whatsapp text-white"></i></a>
-    </div>
+    @if(!empty($link->url_whatsapp))
+      <div class="whatsapp-btn" id="whatsappBtn">
+        <a href="{{ $link->url_whatsapp ?: '' }}" target="_blank"><i class="fab fa-whatsapp text-white"></i></a>
+      </div>
+    @endif
 
     <footer class="text-center text-lg-start bg-body-tertiary text-muted border-top border-3 mt-5">
       <section class="d-flex justify-content-center justify-content-lg-between p-4 border-bottom">
@@ -97,27 +99,27 @@
         </div>
   
         <div>
-          @if($link->url_whatsapp)
+          @if(!empty($link->url_whatsapp))
             <a href="{{ $link->url_whatsapp }}" class="me-4 text-reset">
               <i class="fab fa-whatsapp"></i>
             </a>
           @endif
-          @if($link->url_facebook)
+          @if(!empty($link->url_facebook))
             <a href="{{ $link->url_facebook }}" class="me-4 text-reset">
               <i class="fab fa-facebook-f"></i>
             </a>
           @endif
-          @if($link->url_instagram)
+          @if(!empty($link->url_instagram))
             <a href="{{ $link->url_instagram }}" class="me-4 text-reset">
               <i class="fab fa-instagram"></i>
             </a>
           @endif
-          @if($link->url_linkedin)
+          @if(!empty($link->url_linkedin))
             <a href="{{ $link->url_linkedin }}" class="me-4 text-reset">
               <i class="fab fa-linkedin"></i>
             </a>
           @endif
-          @if($link->url_github)
+          @if(!empty($link->url_github))
             <a href="{{ $link->url_github }}" class="me-4 text-reset">
               <i class="fab fa-github"></i>
             </a>
