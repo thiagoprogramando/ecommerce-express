@@ -38,13 +38,13 @@ class Order extends Model {
     }
 
     public function labelMethod(): string {
-        $status = [
+        $payment_method = [
             'CREDIT_CARD'   => 'Cartão de Crédito',
             'PIX'           => 'Pix',
             'BOLETO'        => 'Boleto',
         ];
 
-        return $status[$this->status] ?? 'Outros';
+        return $payment_method[$this->payment_method] ?? 'Outros';
     }
 
     public function discounts() {
