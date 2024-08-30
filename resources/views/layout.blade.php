@@ -126,7 +126,7 @@
       </section>
   
       <div class="bg-dark text-center text-white p-4">
-        © {{ date('Y') }} Copyright: <a class="text-reset fw-bold" href="{{ env('APP_URL') }}">{{ env('APP_NAME') }}</a>
+        © {{ date('Y') }} Copyright: <a class="text-reset fw-bold" href="{{ env('APP_URL') }}">{{ env('APP_NAME') }}</a> | <a href="https://ifuture.cloud/" class="text-danger">Desenvolvido por IFUTURE CLOUD</a>
       </div>
     </footer>
 
