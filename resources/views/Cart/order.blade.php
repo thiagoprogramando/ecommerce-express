@@ -37,7 +37,7 @@
                                     </td>
                                     <td class="text-center">{{$order->labelStatus() }}</td>
                                     <td class="text-center">{{$order->labelMethod() }} {{ $order->payment_installments }}x</td>
-                                    <td scope="row">{{ $order->created_at->format('d/m/Y') }}</td>
+                                    <td class="text-center">{{ $order->created_at->format('d/m/Y') }}</td>
                                     <td><b>R$ {{ number_format($order->value, 2, ',', '.') }}</b><br>
                                         <a href="{{ $order->payment_url }}" target="_blank" class="text-danger">Link de Pagamento</a>
                                     </td>
