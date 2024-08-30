@@ -90,36 +90,40 @@
     </div>
 
     <footer class="text-center text-lg-start bg-body-tertiary text-muted border-top border-3 mt-5">
-        {{-- <section class="p-5">
-            <div class="container text-center text-md-start mt-5">
-                <div class="row mt-3">
-                
-                    <div class="col-md-3 col-lg-4 col-xl-3 mx-auto mb-4">
-                        <h6 class="text-uppercase fw-bold mb-4">
-                            <i class="fas fa-robot me-3"></i>{{ env('APP_NAME') }}
-                        </h6>
-                        <p>
-                            {{ env('APP_DESCRIPTION') }}
-                        </p>
-                    </div>
-
-                    <div class="col-md-2 col-lg-2 col-xl-2 mx-auto mb-4">
-                        <h6 class="text-uppercase fw-bold mb-4"> Atalhos </h6>
-                        <p> <a href="#!" class="text-reset">Trabalhe conosco</a> </p>
-                        <p> <a href="#!" class="text-reset">FAQ</a> </p>
-                        <p> <a href="#!" class="text-reset">Produtos</a> </p>
-                    </div>
-
-                    <div class="col-md-4 col-lg-3 col-xl-3 mx-auto mb-md-0 mb-4">
-                        <h6 class="text-uppercase fw-bold mb-4">Contato & endereço</h6>
-                        <p><i class="fas fa-home me-3"></i> New York, NY 10012, US</p>
-                        <p> <i class="fas fa-envelope me-3"></i> info@example.com </p>
-                        <p><i class="fas fa-phone me-3"></i> + 01 234 567 88</p>
-                        <p><i class="fas fa-print me-3"></i> + 01 234 567 89</p>
-                    </div>
-                </div>
-            </div>
-        </section> --}}
+      <section class="d-flex justify-content-center justify-content-lg-between p-4 border-bottom">
+       
+        <div class="me-5 d-none d-lg-block">
+          <span>{{ env('APP_NAME') }}</span>
+        </div>
+  
+        <div>
+          @if($link->url_whatsapp)
+            <a href="{{ $link->url_whatsapp }}" class="me-4 text-reset">
+              <i class="fab fa-whatsapp"></i>
+            </a>
+          @endif
+          @if($link->url_facebook)
+            <a href="{{ $link->url_facebook }}" class="me-4 text-reset">
+              <i class="fab fa-facebook-f"></i>
+            </a>
+          @endif
+          @if($link->url_instagram)
+            <a href="{{ $link->url_instagram }}" class="me-4 text-reset">
+              <i class="fab fa-instagram"></i>
+            </a>
+          @endif
+          @if($link->url_linkedin)
+            <a href="{{ $link->url_linkedin }}" class="me-4 text-reset">
+              <i class="fab fa-linkedin"></i>
+            </a>
+          @endif
+          @if($link->url_github)
+            <a href="{{ $link->url_github }}" class="me-4 text-reset">
+              <i class="fab fa-github"></i>
+            </a>
+          @endif
+        </div>
+      </section>
   
       <div class="bg-dark text-center text-white p-4">
         © {{ date('Y') }} Copyright: <a class="text-reset fw-bold" href="{{ env('APP_URL') }}">{{ env('APP_NAME') }}</a>
