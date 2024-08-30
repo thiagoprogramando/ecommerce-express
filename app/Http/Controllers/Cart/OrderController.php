@@ -17,7 +17,7 @@ class OrderController extends Controller {
     public function myOrders() {
 
         return view('Cart.order', [
-            'orders' => Order::orderBy('status', 'asc')->get()
+            'orders' => Order::where('customer_id', Auth::user()->id)->orderBy('status', 'asc')->get()
         ]);
     }
     

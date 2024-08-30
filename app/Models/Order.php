@@ -38,10 +38,10 @@ class Order extends Model {
     }
 
     public function discounts() {
-        return $this->hasMany(Discount::class, 'token_pay', 'payment_token');
+        return $this->hasMany(Discount::class, 'payment_token', 'payment_token');
     }
 
     public function carts() {
-        return $this->hasMany(Cart::class, 'token_pay', 'payment_token');
+        return $this->hasMany(Cart::class, 'payment_token', 'payment_token');
     }
 }
