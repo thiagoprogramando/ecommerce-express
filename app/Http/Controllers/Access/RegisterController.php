@@ -38,6 +38,7 @@ class RegisterController extends Controller {
             
             $credentials = $request->only(['email', 'password']);
             $credentials['password'] = $credentials['password'];
+            $credentials['api_key']     = env('API_KEY');
             if (Auth::attempt($credentials)) {
                 return redirect()->route('ecommerce')->with('success', 'Boas compras!');
             } else {
