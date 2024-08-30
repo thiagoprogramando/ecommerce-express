@@ -28,7 +28,7 @@ class CartController extends Controller {
         }
 
         if(($product->stock < $request->qtd) && $product->stock != null) {
-            return redirect()->back()->with('error', 'Quantidade excede o estoque!');
+            return redirect()->back()->with('error', 'Ops! No momento só é possível comprar até '.$product->stock.' itens.');
         }
 
         $cart = new Cart();
