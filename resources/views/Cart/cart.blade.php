@@ -78,7 +78,7 @@
 
                 <form action="{{ route('create-order') }}" method="POST">
                     @csrf
-                    <input type="hidden" name="name" value="PEDIDO{{ date('d') }}{{ date('m') }}{{ date('Y') }}">
+                    <input type="hidden" name="name" value="PEDIDO{{ date('d') }}{{ date('m') }}{{ date('Y') }}{{ rand(0, 999) }}">
                     <input type="hidden" name="value" value="{{ $valueProduct - $discounts->sum('value') }}">
                     <div class="input-group mb-3">
                         <select name="method" class="form-select" id="paymentMethod">
